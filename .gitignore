@@ -1,0 +1,15 @@
+# Credenciales — nunca subir esto a Git
+.env
+
+# Entornos virtuales de Python
+venv/
+__pycache__/
+*.pyc
+
+# Archivos de datos locales (exports, muestras de prueba, etc.)
+*.csv
+*.zip
+
+# Credenciales de Google Cloud, si se descargan localmente
+*.json
+!package.json
