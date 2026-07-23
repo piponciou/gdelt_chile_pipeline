@@ -82,6 +82,18 @@ CREATE TABLE batch_control (
 );
 
 
+-- Tabla de control diario: registra qué días fueron procesados por la
+-- actualización incremental (scripts/actualizacion_diaria.py). Separada de
+-- batch_control para no mezclar la granularidad de meses históricos con
+-- días incrementales.
+CREATE TABLE daily_control (
+    day_start DATE PRIMARY KEY,
+    status VARCHAR,
+    rows_loaded INT,
+    processed_at TIMESTAMP DEFAULT NOW()
+);
+
+
 -- =========================================================
 -- Funciones de conversión segura.
 -- GDELT ocasionalmente entrega bloques de datos malformados
